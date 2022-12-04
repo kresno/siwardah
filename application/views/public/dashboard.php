@@ -34,7 +34,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                <canvas id="pieChart" style="min-height: 350px; height: 350px; max-height: 350px; max-width: 100%;"></canvas>
               </div>
               <!-- /.card-body -->
             </div>
@@ -46,7 +46,7 @@
             <!-- BAR CHART -->
             <div class="card card-success">
               <div class="card-header">
-                <h3 class="card-title">Persentase Penerimaan</h3>
+                <h3 class="card-title">Persentase 10 Retribusi Terbaik</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -55,21 +55,20 @@
                 </div>
               </div>
               <div class="card-body">
-                <div class="chart">
-                  <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                </div>
+                <!-- <div class="chart">
+                  <canvas id="barChart" style="min-height: 350px; height: 350px; max-height: 350px; max-width: 100%;"></canvas>
+                </div> -->
               </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
-
           </div>
           <!-- /.col (RIGHT) -->
 
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Rekap Jumlah Data Retribusi</h3>
+                <h3 class="card-title">Rekap Jumlah Data Retribusi per 24 November 2022</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -88,9 +87,9 @@
                     <tr>
                         <td> <?php echo ++$count; ?> </td>
                         <td> <?php echo $retribusi->nama_retribusi; ?> </td>
-                        <td> <?php echo $retribusi->target; ?> </td>
-                        <td> <?php echo $retribusi->realisasi; ?> </td>
-                        <td> 100% </td>
+                        <td align="right"> Rp. <?php echo  number_format($retribusi->target,2,".",","); ?> </td>
+                        <td align="right"> Rp. <?php echo  number_format($retribusi->realisasi,2,".",","); ?> </td>
+                        <td align="right"> <?php echo number_format(($retribusi->realisasi)/($retribusi->target) * 100, 2); ?> %</td>
                     </tr>
                         
                     <?php endforeach; }?>

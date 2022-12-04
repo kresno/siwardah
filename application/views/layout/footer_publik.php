@@ -22,7 +22,25 @@
 <script src="<?php echo base_url('assets/adminlte/dist/js/adminlte.min.js'); ?>"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url('assets/adminlte/dist/js/demo.js'); ?>"></script>
-<!-- page script -->
+<!-- DataTables -->
+<script src="<?php echo base_url('assets/adminlte/plugins/datatables/jquery.dataTables.min.js'); ?>"></script>
+<script src="<?php echo base_url('assets/adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js'); ?>"></script>
+<script src="<?php echo base_url('assets/adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js'); ?>"></script>
+<script src="<?php echo base_url('assets/adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js'); ?>"></script>
+<script>
+  $(function () {
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true,
+      "responsive": true,
+    });
+  });
+</script>
+
 <script>
   $(function () {
     /* ChartJS
@@ -61,19 +79,15 @@
       ]
     }
     
+
+    var cData = JSON.parse(`<?php echo $chart_data; ?>`);
+
     var donutData        = {
-      labels: [
-          'Chrome', 
-          'IE',
-          'FireFox', 
-          'Safari', 
-          'Opera', 
-          'Navigator', 
-      ],
+      labels: cData.label,
       datasets: [
         {
-          data: [700,500,400,600,300,100],
-          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+          data: cData.data,
+          backgroundColor : ['#1e81b0','#eeeee4','#e28743','#873e23','#154c79','#063970','#49be25','#be4d25','#be2596','#bea925','#9925be','#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de','#6c25be', '#44BE25', '#BE257F', '#4C1B37', '#460429', '#04461C', '#44584B', '#584458', '#EA03EA', '#F50000', '#7D0606', '#B36363', '#461F1F'] ,
         }
       ]
     }

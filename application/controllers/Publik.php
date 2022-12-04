@@ -28,10 +28,17 @@ class Publik extends CI_Controller
 
 	public function index()
 	{
-		$retribusi = $this->M_Rekap->get_rekap_pie_and_table();
-		var_dump($retribusi);
-		// $this->load->view('layout/header');
-        // $this->load->view('public/dashboard', $retribusi);
-        // $this->load->view('layout/footer_publik');
+		$data['retribusi'] = $this->M_Rekap->get_rekap_pie_and_table();
+		
+		$record = $this->M_Rekap->get_rekap_pie_and_table();
+		foreach($record as $row) {
+            $piedata['label'][] = $row->nama_retribusi;
+            $piedata['data'][] = (int) $row->realisasi;
+      	}
+      	$data['chart_data'] = json_encode($piedata);
+
+		$this->load->view('layout/header');
+        $this->load->view('public/dashboard', $data);
+        $this->load->view('layout/footer_publik');
 	}
 }
