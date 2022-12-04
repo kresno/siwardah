@@ -65,6 +65,43 @@
 
           </div>
           <!-- /.col (RIGHT) -->
+
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Rekap Jumlah Data Retribusi</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Nomor</th>
+                    <th>Jenis Retribusi</th>
+                    <th>Target</th>
+                    <th>Realisasi</th>
+                    <th>Persentase</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <?php $count=0; if($retribusi>0) { foreach($retribusi as $retribusi): ?>
+                    <tr>
+                        <td> <?php echo ++$count; ?> </td>
+                        <td> <?php echo $retribusi->nama_retribusi; ?> </td>
+                        <td> <?php echo $retribusi->target; ?> </td>
+                        <td> <?php echo $retribusi->realisasi; ?> </td>
+                        <td> 100% </td>
+                    </tr>
+                        
+                    <?php endforeach; }?>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->

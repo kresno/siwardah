@@ -11,7 +11,7 @@ class Dokumen extends CI_Controller{
         
         $this->load->view('layout/header');
         $this->load->view('dokumen/dashboard');
-        $this->load->view('layout/footer_publik');
+        $this->load->view('layout/footer');
     }
 }
 

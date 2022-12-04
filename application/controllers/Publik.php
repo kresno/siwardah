@@ -19,10 +19,19 @@ class Publik extends CI_Controller
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	function __construct(){
+        parent::__construct();
+        $this->load->model('M_Rekap');
+    }
+
+
 	public function index()
 	{
-		$this->load->view('layout/header');
-        $this->load->view('public/dashboard');
-        $this->load->view('layout/footer_publik');
+		$retribusi = $this->M_Rekap->get_rekap_pie_and_table();
+		var_dump($retribusi);
+		// $this->load->view('layout/header');
+        // $this->load->view('public/dashboard', $retribusi);
+        // $this->load->view('layout/footer_publik');
 	}
 }
