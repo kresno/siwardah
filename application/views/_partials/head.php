@@ -5,7 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title><?= $this->config->item('site_name') ?></title>
+<title>Siwardah</title>
 
 <link rel="stylesheet" href="<?= base_url('assets/vendor/fontawesome-free/css/all.min.css') ?>">
 

@@ -11,14 +11,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <?= $this->config->item('site_name') ?>
+        <img src="<?php echo base_url('assets/img/logo_garut.png'); ?>" alt="Siwardah Logo" class="brand-image img-circle elevation-3"
+             style="opacity: .8" width="50px">
+            Siwardah
         </div>
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">
                     Selamat datang, <br>
-                    silahkan login untuk melanjutkan
+                    Sistem Informasi Pengawasan Retribusi Daerah
                 </p>
 
                 <form action="<?= base_url('auth/login') ?>" method="post">
