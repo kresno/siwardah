@@ -31,7 +31,7 @@
 			    <div class="container">
 			    	<div class="row align-items-center justify-content-between d-flex">
 				      <div id="logo">
-				        <a href="https://siwardah.garutkab.go.id/"><img src="<?php echo base_url('assets/front/logo.png'); ?>" alt="" title=""></a>
+				        <a href="https://siwardah.bapenda.garutkab.go.id/"><img src="<?php echo base_url('assets/front/logo.png'); ?>" alt="" title=""></a>
 				      </div>		    		
 			    	</div>
 			    </div>
