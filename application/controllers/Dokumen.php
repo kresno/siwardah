@@ -9,6 +9,9 @@ class Dokumen extends CI_Controller{
     public function index(){
         $data['dokumen'] = $this->M_Dokumen->get_file_dokumen();
         
+        $this->load->view('layout/header');
+        $this->load->view('dokumen/dashboard');
+        $this->load->view('layout/footer_publik');
     }
 }
 
