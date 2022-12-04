@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0037)https://simencrang.sukabumikab.go.id/ -->
 <html lang="zxx" class="no-js" style="display: block;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,25 +16,22 @@
 		<title>Siwardah</title>
 
 		<link href="<?php echo base_url('assets/front/'); ?>css" rel="stylesheet"> 
-			<!--
-			CSS
-			============================================= -->
-			<link rel="stylesheet" href="<?php echo base_url('assets/front/linearicons.css'); ?>">
-			<link rel="stylesheet" href="<?php echo base_url('assets/front/font-awesome.min.css'); ?>">
-			<link rel="stylesheet" href="<?php echo base_url('assets/front/bootstrap.css'); ?>">
-			<link rel="stylesheet" href="<?php echo base_url('assets/front/magnific-popup.css'); ?>">
-			<link rel="stylesheet" href="<?php echo base_url('assets/front/nice-select.css'); ?>">					
-			<link rel="stylesheet" href="<?php echo base_url('assets/front/animate.min.css'); ?>">
-			<link rel="stylesheet" href="<?php echo base_url('assets/front/owl.carousel.css'); ?>">
-			<link rel="stylesheet" href="<?php echo base_url('assets/front/main.css'); ?>">
-		<script type="text/javascript" charset="UTF-8" src="<?php echo base_url('assets/front/'); ?>common.js"></script><script type="text/javascript" charset="UTF-8" src="<?php echo base_url('assets/front/'); ?>util.js"></script></head>
+		<link rel="stylesheet" href="<?php echo base_url('assets/front/linearicons.css'); ?>">
+		<link rel="stylesheet" href="<?php echo base_url('assets/front/font-awesome.min.css'); ?>">
+		<link rel="stylesheet" href="<?php echo base_url('assets/front/bootstrap.css'); ?>">
+		<link rel="stylesheet" href="<?php echo base_url('assets/front/magnific-popup.css'); ?>">
+		<link rel="stylesheet" href="<?php echo base_url('assets/front/nice-select.css'); ?>">					
+		<link rel="stylesheet" href="<?php echo base_url('assets/front/animate.min.css'); ?>">
+		<link rel="stylesheet" href="<?php echo base_url('assets/front/owl.carousel.css'); ?>">
+		<link rel="stylesheet" href="<?php echo base_url('assets/front/main.css'); ?>">
+		<script type="text/javascript" charset="UTF-8" src="<?php echo base_url('assets/front/common.js'); ?>"></script><script type="text/javascript" charset="UTF-8" src="<?php echo base_url('assets/front/'); ?>util.js"></script></head>
 		<body style="display: block;">
 
 			  <header id="header" class="header-scrolled">
 			    <div class="container">
 			    	<div class="row align-items-center justify-content-between d-flex">
 				      <div id="logo">
-				        <a href="https://siwardah.garutkab.go.id/index.php"><img src="<?php echo base_url('assets/front/logo.png'); ?>" alt="" title=""></a>
+				        <a href="https://siwardah.garutkab.go.id/"><img src="<?php echo base_url('assets/front/logo.png'); ?>" alt="" title=""></a>
 				      </div>		    		
 			    	</div>
 			    </div>
