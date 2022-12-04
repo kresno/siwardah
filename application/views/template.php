@@ -71,7 +71,7 @@
 					</div>						
 					<div class="row">
 						<div class="col-lg-4">
-							<a href="http://siwardah.sukabumikab.go.id/login" style="color:inherit;">
+							<a href="http://siwardah.bapenda.garutkab.go.id/login" style="color:inherit;">
 								<div class="single-feature">
     								<span class="lnr lnr-database"></span>
     								<h4>
@@ -84,7 +84,7 @@
 							</a>
 						</div>
 						<div class="col-lg-4">
-						    <a href="http://siwardah.garutkab.go.id/dokumen" style="color:inherit;">
+						    <a href="http://siwardah.bapenda.garutkab.go.id/dokumen" style="color:inherit;">
     							<div class="single-feature">
     								<span class="lnr lnr-file-add"></span>
     								<h4>
@@ -97,7 +97,7 @@
     						</a>
 						</div>
 						<div class="col-lg-4">
-						    <a href="http://siwardah.garutkab.go.id/publik" style="color:inherit;">
+						    <a href="http://siwardah.bapenda.garutkab.go.id/publik" style="color:inherit;">
     							<div class="single-feature">
     								<span class="lnr lnr-smile"></span>
     								<h4>
