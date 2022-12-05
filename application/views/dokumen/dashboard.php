@@ -38,30 +38,13 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Dokumen RPJMD</td>
-                    <td>20 November 2022</td>
-                    <td><a href="#" class="btn btn-block btn-success">Download</a></td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Dokumen Retribusi</td>
-                    <td>20 November 2022</td>
-                    <td><a href="#" class="btn btn-block btn-success">Download</a></td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Dokumen Pendapatan Daerah</td>
-                    <td>20 November 2022</td>
-                    <td><a href="#" class="btn btn-block btn-success">Download</a></td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Perbup xxxx </td>
-                    <td>20 November 2022</td>
-                    <td><a href="#" class="btn btn-block btn-success">Download</a></td>
-                  </tr>
+                  <?php $count=0; if($dokumen>0) { foreach($dokumen as $dokumen): ?>
+                    <tr>
+                        <td> <?php echo ++$count; ?> </td>
+                        <td> <?php echo $dokumen->nama; ?> </td>
+                        <td> <?php echo date_format($dokumen->created_at, "d-m-Y"); ?> </td>
+                        <td><a href="<?php echo base_url('public/dokumen/').$dokumen->file; ?>" class="btn btn-block btn-success">Download</a></td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
