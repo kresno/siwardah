@@ -45,6 +45,7 @@
                         <td> <?php echo date_format($dokumen->created_at, "d-m-Y"); ?> </td>
                         <td><a href="<?php echo base_url('public/dokumen/').$dokumen->file; ?>" class="btn btn-block btn-success">Download</a></td>
                     </tr>
+                  <?php endforeach(); ?>
                   </tbody>
                 </table>
               </div>
