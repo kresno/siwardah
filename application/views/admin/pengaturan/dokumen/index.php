@@ -38,14 +38,14 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <?php $count=0; if($pd>0) { foreach($pd as $pd): ?>
+                  <?php $count=0; if($dokumen>0) { foreach($dokumen as $dokumen): ?>
                     <tr>
                         <td> <?php echo ++$count; ?> </td>
-                        <td> <?php echo $pd->nama; ?> </td>
-                        <td> <?php echo $pd->created_at; ?> </td>
+                        <td> <?php echo $dokumen->nama_dokumen; ?> </td>
+                        <td><a target="_blank" href="<?php echo base_url('public/dokumen/').$dokumen->file; ?>" class="btn btn-sm btn-success">Download</a></td>
                         <td>
-                            <a href='edit/'.<?php echo $pd->id; ?> class='btn btn-xs btn-primary'>Edit</a>
-                            <a href='hapus/'.<?php echo $pd->id; ?> class='btn btn-xs btn-danger'>Hapus</a>
+                            <a href='edit/'.<?php echo $dokumen->id; ?> class='btn btn-xs btn-primary'>Edit</a>
+                            <a href='hapus/'.<?php echo $dokumen->id; ?> class='btn btn-xs btn-danger'>Hapus</a>
                         </td>
                     </tr>
                   <?php endforeach; } ?>

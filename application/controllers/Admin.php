@@ -71,7 +71,12 @@ class Admin extends CI_Controller
 
   public function pengaturan_dokumen()
   {
+    $data['dokumen'] = $this->M_Dokumen->get_file_dokumen();
 
+    $this->load->view('layout_admin/partial_admin/header');
+    $this->load->view('layout_admin/partial_admin/sidebar');
+    $this->load->view('admin/pengaturan/dokumen/index', $data);
+    $this->load->view('layout_admin/partial_admin/footer');
   }
 }
 
