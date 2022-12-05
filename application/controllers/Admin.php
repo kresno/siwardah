@@ -78,6 +78,14 @@ class Admin extends CI_Controller
     $this->load->view('admin/pengaturan/dokumen/index', $data);
     $this->load->view('layout_admin/partial_admin/footer');
   }
+
+  public function create_transaksi()
+  {
+    $this->load->view('layout_admin/partial_admin/header');
+    $this->load->view('layout_admin/partial_admin/sidebar');
+    $this->load->view('admin/transaksi/create');
+    $this->load->view('layout_admin/partial_admin/footer');
+  }
 }
 
 
