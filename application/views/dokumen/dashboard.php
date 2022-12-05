@@ -41,8 +41,8 @@
                   <?php $count=0; if($dokumen>0) { foreach($dokumen as $dokumen): ?>
                     <tr>
                         <td> <?php echo ++$count; ?> </td>
-                        <td> <?php echo $dokumen->nama; ?> </td>
-                        <td> <?php echo date_format($dokumen->created_at, "d-m-Y"); ?> </td>
+                        <td> <?php echo $dokumen->nama_dokumen; ?> </td>
+                        <td> <?php echo $dokumen->created_at; ?> </td>
                         <td><a href="<?php echo base_url('public/dokumen/').$dokumen->file; ?>" class="btn btn-block btn-success">Download</a></td>
                     </tr>
                   <?php endforeach; } ?>
