@@ -32,24 +32,38 @@
               <!-- form start -->
               <form role="form">
                 <div class="card-body">
-                  <div class="form-group">
-                    <label for="namapd">Nama Perangkat Daerah</label>
-                    <input type="text" class="form-control" id="namapd" placeholder="Nama Perangkat Daerah">
-                  </div>
-                  <div class="form-group">
-                    <label for="namaretribusi">Nama Retribusi</label>
-                    <input type="text" class="form-control" id="namaretribusi" placeholder="Nama Retribusi">
-                  </div>
+                    
+                <div class="form-group">
+                  <label>Nama Perangkat Daerah</label>
+                  <select class="form-control select2" style="width: 100%;">
+                    <option>=== Pilih Perangkat Daerah ===</option>
+                    <?php if($pd>0) { foreach($pd as $pd): ?>
+                      <option value="<?php echo $pd->id; ?>"> <?php echo $pd->nama; ?> </option>
+                    <?php endforeach; } ?>
+                  </select>
+                </div>
+                <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label>Nama Retribusi</label>
+                  <select class="form-control select2" style="width: 100%;">
+                    <option>=== Pilih Retribusi ===</option>
+                    <?php if($retribusi>0) { foreach($retribusi as $retribusi): ?>
+                      <option value="<?php echo $retribusi->id; ?>"> <?php echo $retribusi->nama; ?> </option>
+                    <?php endforeach; } ?>
+                  </select>
+                </div>
+                <!-- /.form-group -->
                   <div class="form-group">
                     <label for="namaretribusi">Nominal</label>
-                    <input type="text" class="form-control" id="namaretribusi" placeholder="Nama Retribusi">
+                    <input type="number" class="form-control" id="namaretribusi" placeholder="Nominal Retribusi">
                   </div>
                   <div class="form-group">
                     <label for="namaretribusi">Tanggal</label>
                     <input type="date" class="form-control" id="namaretribusi" >
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputFile">File input</label>
+                    <label for="exampleInputFile">Bukti Retribusi</label>
                     <div class="input-group">
                       <div class="custom-file">
                         <input type="file" class="custom-file-input" id="exampleInputFile">

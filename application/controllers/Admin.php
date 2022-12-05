@@ -81,9 +81,12 @@ class Admin extends CI_Controller
 
   public function create_transaksi()
   {
+    $data['pd'] = $this->M_Opd->get_all_opd();
+    $data['retribusi'] = $this->M_Retribusi->get_all_retribusi();
+
     $this->load->view('layout_admin/partial_admin/header');
     $this->load->view('layout_admin/partial_admin/sidebar');
-    $this->load->view('admin/transaksi/create');
+    $this->load->view('admin/transaksi/create', $data);
     $this->load->view('layout_admin/partial_admin/footer');
   }
 }
