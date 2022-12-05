@@ -92,21 +92,28 @@ class Admin extends CI_Controller
 
   public function store_transaksi()
   {
-    $config['upload_path'] = base_url('/public/upload/');
+    $config['upload_path'] = './public/upload/';
     $config['allowed_types'] = 'gif|jpg|png|pdf|docx';
     $config['max_size'] = 2000;
     $config['max_width'] = 1500;
     $config['max_height'] = 1500;
+    $config['encrypt_name']			= TRUE;
 
     $this->load->library('upload', $config);
 
-    if (!$this->upload->do_upload('file')) {
+    if (!$this->upload->do_upload('bukti')) {
       $error = array('error' => $this->upload->display_errors());
 
-      $this->load->view('files/upload_form', $error);
+      echo "<script>alert('Gagal Membuat Transaksi') ; window.location.href = 'create_transaksi' </script>";
     } else {
-      $data = array('image_metadata' => $this->upload->data());
-      $this->load->view('files/upload_result', $data);
+      $data['id_opd'] = $this->input->post('id_opd');
+      $data['id_jenis_retribusi'] = $this->input->post('id_jenis_retribusi');
+      $data['nominal'] = $this->input->post('nominal');
+      $data['bukti'] = $this->upload->data('file_name');
+      $data['tanggal_upload'] = $this->input->post('tanggal');
+      $this->db->insert('transaksi', $data);
+      
+      echo "<script>alert('Berhasil Membuat Transaksi') ; window.location.href = 'transaksi_all' </script>";
     }
   }
 

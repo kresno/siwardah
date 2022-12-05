@@ -30,12 +30,12 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" action="<?=base_url('admin/store_transaksi')?>" enctype="multipart/form-data">
+              <form action="<?=base_url('admin/store_transaksi')?>" method="post" enctype="multipart/form-data">
                 <div class="card-body">
                     
                 <div class="form-group">
                   <label>Nama Perangkat Daerah</label>
-                  <select class="form-control select2" style="width: 100%;">
+                  <select name="id_opd" class="form-control select2" style="width: 100%;">
                     <option>=== Pilih Perangkat Daerah ===</option>
                     <?php if($pd>0) { foreach($pd as $pd): ?>
                       <option value="<?php echo $pd->id; ?>"> <?php echo $pd->nama; ?> </option>
@@ -46,7 +46,7 @@
 
                 <div class="form-group">
                   <label>Nama Retribusi</label>
-                  <select class="form-control select2" style="width: 100%;">
+                  <select name="id_jenis_retribusi" class="form-control select2" style="width: 100%;">
                     <option>=== Pilih Retribusi ===</option>
                     <?php if($retribusi>0) { foreach($retribusi as $retribusi): ?>
                       <option value="<?php echo $retribusi->id; ?>"> <?php echo $retribusi->nama; ?> </option>
@@ -55,22 +55,19 @@
                 </div>
                 <!-- /.form-group -->
                   <div class="form-group">
-                    <label for="namaretribusi">Nominal</label>
-                    <input type="number" class="form-control" id="namaretribusi" placeholder="Nominal Retribusi">
+                    <label for="nominal">Nominal</label>
+                    <input type="number" name="nominal" class="form-control" id="nominal" placeholder="Nominal Retribusi">
                   </div>
                   <div class="form-group">
-                    <label for="namaretribusi">Tanggal</label>
-                    <input type="date" class="form-control" id="namaretribusi" >
+                    <label for="tanggal">Tanggal</label>
+                    <input type="date" name="tanggal" class="form-control" id="tanggal" >
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputFile">Bukti Retribusi</label>
+                    <label for="bukti">Bukti Retribusi</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text" id="">Upload</span>
+                        <input type="file" name="bukti" class="custom-file-input" id="bukti">
+                        <label class="custom-file-label" for="bukti">Choose file</label>
                       </div>
                     </div>
                   </div>
@@ -78,7 +75,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <input type="submit" value="submit" class="btn btn-primary">
                 </div>
               </form>
             </div>
