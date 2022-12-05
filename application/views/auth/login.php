@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     Sistem Informasi Pengawasan Retribusi Daerah
                 </p>
 
-                <form action="<?= base_url('auth/login') ?>" method="post">
+                <form action="<?php echo base_url('login/validasi'); ?>" method="post">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" name="username" placeholder="Username" autofocus autocomplete="username">
                         <div class="input-group-append">
@@ -51,7 +51,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            <input type="submit" name="submit" class="btn btn-primary btn-block">
                         </div>
                         <!-- /.col -->
                     </div>

@@ -89,6 +89,47 @@ class Admin extends CI_Controller
     $this->load->view('admin/transaksi/create', $data);
     $this->load->view('layout_admin/partial_admin/footer');
   }
+
+  public function store_transaksi()
+  {
+    $config['upload_path'] = base_url('/public/upload/');
+    $config['allowed_types'] = 'gif|jpg|png|pdf|docx';
+    $config['max_size'] = 2000;
+    $config['max_width'] = 1500;
+    $config['max_height'] = 1500;
+
+    $this->load->library('upload', $config);
+
+    if (!$this->upload->do_upload('file')) {
+      $error = array('error' => $this->upload->display_errors());
+
+      $this->load->view('files/upload_form', $error);
+    } else {
+      $data = array('image_metadata' => $this->upload->data());
+      $this->load->view('files/upload_result', $data);
+    }
+  }
+
+
+  public function validasi_transaksi($id)
+  {
+    $data = $this->M_Transaksi->update_transaksi($id);
+
+    if($data)
+    {
+      echo "<script>alert('Berhasil Menyetujui Transaksi') ; window.location.href = '../transaksi_all' </script>";
+    }
+  }
+
+  public function tolak_transaksi($id)
+  {
+    $data = $this->M_Transaksi->tolak_transaksi($id);
+
+    if($data)
+    {
+      echo "<script>alert('Berhasil Menolak Transaksi') ; window.location.href = '../transaksi_all' </script>";
+    }
+  }
 }
 
 

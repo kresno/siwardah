@@ -30,7 +30,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form">
+              <form role="form" action="<?=base_url('admin/store_transaksi')?>" enctype="multipart/form-data">
                 <div class="card-body">
                     
                 <div class="form-group">

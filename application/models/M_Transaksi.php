@@ -28,6 +28,43 @@ class M_Transaksi extends CI_Model{
                 return false;
         }
     }
+
+
+    public function store_transaksi($data){
+        $data['id_opd'] =  $data['id_opd'];
+    }
+
+    public function update_transaksi($id){
+        $where = array(
+            'id' => $id
+        );
+        $data = array(
+            'status'=>'1'
+        );
+        $this->db->where($where);
+        $query = $this->db->update('transaksi', $data);
+        if ($query){
+                return true;
+            } else {
+                return false;
+        }
+    }
+
+    public function tolak_transaksi($id){
+        $where = array(
+            'id' => $id
+        );
+        $data = array(
+            'status'=>'2'
+        );
+        $this->db->where($where);
+        $query = $this->db->update('transaksi', $data);
+        if ($query){
+                return true;
+            } else {
+                return false;
+        }
+    }
     
 }
 

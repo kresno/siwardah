@@ -50,7 +50,7 @@
                         <td> <?php echo $transaksi->tanggal; ?> </td>
                         <td align="right"> Rp. <?php echo number_format($transaksi->nominal, 2); ?> </td>
                         <td><a target="_blank" href="<?php echo base_url('public/dokumen/').$transaksi->bukti; ?>" class="btn btn-xs btn-success">Download</a></td>
-                        <td> <?php if($transaksi->status==0) { echo "belum divalidasi";} else { echo "sudah divalidasi"; }?> </td>
+                        <td> <?php if($transaksi->status==0) { echo "belum divalidasi";} else if($transaksi->status==1){ echo "transaksi disetujui"; } else{ echo "transaksi ditolak"; }?> </td>
                         <td> 
                             <?php if($transaksi->status==0) { 
                                 echo "<a href='validasi_transaksi/$transaksi->id' class='btn btn-xs btn-primary'>Setujui</a>
