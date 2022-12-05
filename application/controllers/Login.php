@@ -11,23 +11,25 @@ class Login extends CI_Controller{
 
     public function validasi()
     {
-      $this->form_validation->set_rules('username', 'Username', 'trim|required');
-      $this->form_validation->set_rules('password', 'Password', 'trim|required|callback_check_login');
+      // $this->form_validation->set_rules('username', 'Username', 'trim|required');
+      // $this->form_validation->set_rules('password', 'Password', 'trim|required|callback_check_login');
   
-          if($this->form_validation->run() == FALSE)
-          {
-              $this->load->view('auth/login');
-          } else {
-        $admin_log = $this->auth->is_login_admin();
-        if($admin_log['level_id'] == 2)
-        {
-          redirect('pd/dashboard', 'refresh');
-        } else if($admin_log['level_id'] > 3){
-          redirect('bidang/dashboard', 'refresh');
-        } else{
-          redirect('superadmin/dashboard', 'refresh');
-        }
-          }
+      //     if($this->form_validation->run() == FALSE)
+      //     {
+      //         $this->load->view('auth/login');
+      //     } else {
+      //   $admin_log = $this->auth->is_login_admin();
+      //   if($admin_log['level_id'] == 2)
+      //   {
+      //     redirect('pd/dashboard', 'refresh');
+      //   } else if($admin_log['level_id'] > 3){
+      //     redirect('bidang/dashboard', 'refresh');
+      //   } else{
+      //     redirect('superadmin/dashboard', 'refresh');
+      //   }
+      //     }
+      $this->session->set_flashdata("sukses","Berhasil Login"); //pesan yang akan ke halaman redirect
+      redirect(base_url('admin/dashboard'));
     }
 
     function check_login($password)
