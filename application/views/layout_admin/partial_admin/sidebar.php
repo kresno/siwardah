@@ -6,7 +6,7 @@
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Siwardah</span>
+      <span class="brand-text font-weight-light">Rutilahu</span>
     </a>
 
     <!-- Sidebar -->
@@ -35,13 +35,13 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Data Retribusi Masuk
+                Data Rutilahu
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo base_url('admin/create_transaksi'); ?>" class="nav-link">
+                <a href="<?php echo base_url('admin/create_rumah'); ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Input Data</p>
                 </a>
@@ -70,15 +70,27 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo base_url('admin/pengaturan_pd'); ?>" class="nav-link">
+                <a href="<?php echo base_url('admin/pengaturan_kecamatan'); ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Perangkat Daerah</p>
+                  <p>Kecamatan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('admin/pengaturan_retribusi'); ?>" class="nav-link">
+                <a href="<?php echo base_url('admin/pengaturan_desa'); ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Jenis Retribusi</p>
+                  <p>Desa</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url('admin/pengaturan_jenis_rutilahu'); ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Jenis Rutilahu</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url('admin/pengaturan_kerusakan'); ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Jenis Kerusakan</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -87,7 +99,16 @@
                   <p>Dokumen</p>
                 </a>
               </li>
+
             </ul>
+          </li>
+          <li class="nav-item">
+            <a href="<?php echo base_url('admin/laporan'); ?>" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Laporan
+              </p>
+            </a>
           </li>
         </ul>
       </nav>

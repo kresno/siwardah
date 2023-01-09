@@ -13,14 +13,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="login-logo">
         <img src="<?php echo base_url('assets/img/logo_garut.png'); ?>" alt="Siwardah Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8" width="50px">
-            Siwardah
+            Rutilahu
         </div>
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">
                     Selamat datang, <br>
-                    Sistem Informasi Pengawasan Retribusi Daerah
+                    Sistem Informasi Rutilahu
                 </p>
 
                 <form action="<?php echo base_url('login/validasi'); ?>" method="post">

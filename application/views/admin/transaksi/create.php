@@ -5,12 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Form Input Retribusi Daerah</h1>
+            <h1>Form Input Penanganan Rutilahu Daerah</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Form Retribusi</li>
+              <li class="breadcrumb-item active">Form Input Penanganan Rutilahu</li>
             </ol>
           </div>
         </div>
@@ -30,49 +30,91 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="<?=base_url('admin/store_transaksi')?>" method="post" enctype="multipart/form-data">
+              <form action="<?=base_url('admin/store_rutilahu')?>" method="post" enctype="multipart/form-data">
                 <div class="card-body">
-                    
+                
+                <input type="hidden" name="tahun" value="<?php echo date('Y');?>">
+
                 <div class="form-group">
-                  <label>Nama Perangkat Daerah</label>
-                  <select name="id_opd" class="form-control select2" style="width: 100%;">
-                    <option>=== Pilih Perangkat Daerah ===</option>
-                    <?php if($pd>0) { foreach($pd as $pd): ?>
-                      <option value="<?php echo $pd->id; ?>"> <?php echo $pd->nama; ?> </option>
+                  <label>Jenis Penanganan Rutilahu</label>
+                  <select name="jenis_penanganan" class="form-control select2" style="width: 100%;" required>
+                    <option>=== Pilih Jenis Penanganan Rutilahu ===</option>
+                    <?php if($jenis>0) { foreach($jenis as $jenis): ?>
+                      <option value="<?php echo $jenis->id; ?>"> <?php echo $jenis->nama; ?> </option>
+                    <?php endforeach; } ?>
+                  </select>
+                </div>
+                <!-- /.form-group -->
+                
+                <div class="form-group">
+                  <label for="kecamatan">Nama Kecamatan</label>
+                  <select id="kecamatan" name="kecamatan" class="form-control select2" style="width: 100%;" required>
+                    <option>=== Pilih Kecamatan ===</option>
+                    <?php if($kecamatan>0) { foreach($kecamatan as $kecamatan): ?>
+                      <option value="<?php echo $kecamatan->id; ?>"> <?php echo $kecamatan->nama; ?> </option>
                     <?php endforeach; } ?>
                   </select>
                 </div>
                 <!-- /.form-group -->
 
                 <div class="form-group">
-                  <label>Nama Retribusi</label>
-                  <select name="id_jenis_retribusi" class="form-control select2" style="width: 100%;">
-                    <option>=== Pilih Retribusi ===</option>
-                    <?php if($retribusi>0) { foreach($retribusi as $retribusi): ?>
-                      <option value="<?php echo $retribusi->id; ?>"> <?php echo $retribusi->nama; ?> </option>
-                    <?php endforeach; } ?>
+                  <label for="desa">Nama Desa</label>
+                  <select id="desa" name="desa" class="form-control select2" style="width: 100%;" required>
+                    <option>=== Pilih Desa ===</option>
                   </select>
                 </div>
                 <!-- /.form-group -->
-                  <div class="form-group">
-                    <label for="nominal">Nominal</label>
-                    <input type="number" name="nominal" class="form-control" id="nominal" placeholder="Nominal Retribusi">
-                  </div>
-                  <div class="form-group">
-                    <label for="tanggal">Tanggal</label>
-                    <input type="date" name="tanggal" class="form-control" id="tanggal" >
-                  </div>
-                  <div class="form-group">
-                    <label for="bukti">Bukti Retribusi</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" name="bukti" class="custom-file-input" id="bukti">
-                        <label class="custom-file-label" for="bukti">Choose file</label>
-                      </div>
-                    </div>
+
+                <div class="form-group">
+                  <label for="nominal">Alamat Lengkap</label>
+                  <textarea name="alamat" class="form-control" id="alamat" placeholder="Masukkan Alamat Lengkap" rows="3"  required></textarea>
+                </div>
+                <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label for="nominal">Nama Calon Penerima</label>
+                  <input type="text" name="nama" class="form-control" id="nama" placeholder="Masukkan Nama Calon Penerima"  required>
+                </div>
+                <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label for="nominal">Nomor Induk Kependuduk (NIK) (Masukkan Gambar dengan maksimal ukuran 2MB)</label>
+                  <input type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==16) return false;" name="nik" class="form-control" id="nik" placeholder="Masukkan Nomor Induk Penduduk"  required>
+                </div>
+                <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label for="nominal">Nomor Kartu Keluarga (KK) (Masukkan Gambar dengan maksimal ukuran 2MB)</label>
+                  <input type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==16) return false;" name="no_kk" class="form-control" id="no_kk" placeholder="Masukkan Nomor Kartu Keluarga"  required>
+                </div>
+                <!-- /.form-group -->
+              
+                <div class="form-group">
+                  <label for="foto_ktp">Bukti Foto KTP (Masukkan Gambar dengan maksimal ukuran 2MB)</label>
+                  <div class="input-group custom-file-button">
+                    <input type="file" class="form-control" id="inputGroupFile" id="foto_ktp" name="foto_ktp" required>
                   </div>
                 </div>
-                <!-- /.card-body -->
+                <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label for="foto_kk">Bukti Foto KK</label>
+                  <div class="input-group custom-file-button">
+                    <input type="file" class="form-control" id="inputGroupFile" id="foto_kk" name="foto_kk" required>
+                  </div>
+                </div>
+                <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label for="foto_awal">Bukti Foto Awal Rumah</label>
+                  <div class="input-group custom-file-button">
+                    <input type="file" class="form-control" id="inputGroupFile" id="foto_awal" name="foto_awal" >
+                  </div>
+                </div>
+                <!-- /.form-group -->
+              
+              </div>
+              <!-- /.card-body -->
 
                 <div class="card-footer">
                   <input type="submit" value="submit" class="btn btn-primary">
@@ -89,3 +131,32 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+  <script>
+    $(document).ready(function() {
+    // Kecamatan
+    $("#kecamatan").change(function() {
+        var id_kec = $("#kecamatan").val();
+        $("#desa").select2({
+            ajax: {
+                url: '<?= base_url() ?>admin/getdatadesa/' + id_kec,
+                type: "post",
+                dataType: 'json',
+                delay: 200,
+                data: function(params) {
+                    return {
+                        searchTerm: params.term
+                    };
+                },
+                processResults: function(response) {
+                    return {
+                        results: response
+                    };
+                },
+                cache: true
+            }
+        });
+    });
+
+});
+  </script>

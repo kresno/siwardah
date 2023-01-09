@@ -9,9 +9,13 @@ class Admin extends CI_Controller
   {
     parent::__construct();
     $this->load->model('M_Dokumen');
-    $this->load->model('M_Transaksi');
     $this->load->model('M_Opd');
     $this->load->model('M_Retribusi');
+    $this->load->model('M_Kec');
+    $this->load->model('M_Desa');
+    $this->load->model('M_Jenis');
+    $this->load->model('M_Kerusakan');
+    $this->load->model('M_Kpm');
     // $this->load->library('Auth');
   }
 
@@ -28,47 +32,6 @@ class Admin extends CI_Controller
     $this->load->view('layout_admin/partial_admin/footer');
   }
 
-
-  public function transaksi_all()
-  {
-    $data['transaksi'] = $this->M_Transaksi->get_all_transaksi();
-
-    $this->load->view('layout_admin/partial_admin/header');
-    $this->load->view('layout_admin/partial_admin/sidebar');
-    $this->load->view('admin/transaksi/index', $data);
-    $this->load->view('layout_admin/partial_admin/footer');
-  }
-
-  public function transaksi_pending()
-  {
-    $data['transaksi'] = $this->M_Transaksi->get_transaksi_pending();
-
-    $this->load->view('layout_admin/partial_admin/header');
-    $this->load->view('layout_admin/partial_admin/sidebar');
-    $this->load->view('admin/transaksi/index_pending', $data);
-    $this->load->view('layout_admin/partial_admin/footer');
-  }
-
-  public function pengaturan_pd()
-  {
-    $data['pd'] = $this->M_Opd->get_all_opd();
-
-    $this->load->view('layout_admin/partial_admin/header');
-    $this->load->view('layout_admin/partial_admin/sidebar');
-    $this->load->view('admin/pengaturan/pd/index', $data);
-    $this->load->view('layout_admin/partial_admin/footer');
-  }
-
-  public function pengaturan_retribusi()
-  {
-    $data['retribusi'] = $this->M_Retribusi->get_all_retribusi();
-
-    $this->load->view('layout_admin/partial_admin/header');
-    $this->load->view('layout_admin/partial_admin/sidebar');
-    $this->load->view('admin/pengaturan/retribusi/index', $data);
-    $this->load->view('layout_admin/partial_admin/footer');
-  }
-
   public function pengaturan_dokumen()
   {
     $data['dokumen'] = $this->M_Dokumen->get_file_dokumen();
@@ -79,10 +42,61 @@ class Admin extends CI_Controller
     $this->load->view('layout_admin/partial_admin/footer');
   }
 
-  public function create_transaksi()
+  public function pengaturan_kecamatan()
   {
-    $data['pd'] = $this->M_Opd->get_all_opd();
-    $data['retribusi'] = $this->M_Retribusi->get_all_retribusi();
+    $data['kecamatan'] = $this->M_Kec->get_all_kec();
+
+    $this->load->view('layout_admin/partial_admin/header');
+    $this->load->view('layout_admin/partial_admin/sidebar');
+    $this->load->view('admin/pengaturan/kecamatan/index', $data);
+    $this->load->view('layout_admin/partial_admin/footer');
+  }
+
+  public function pengaturan_desa()
+  {
+    $data['desa'] = $this->M_Desa->get_all_desa();
+
+    $this->load->view('layout_admin/partial_admin/header');
+    $this->load->view('layout_admin/partial_admin/sidebar');
+    $this->load->view('admin/pengaturan/desa/index', $data);
+    $this->load->view('layout_admin/partial_admin/footer');
+  }
+
+  public function pengaturan_jenis_rutilahu()
+  {
+    $data['jenis'] = $this->M_Jenis->get_all_jenis();
+
+    $this->load->view('layout_admin/partial_admin/header');
+    $this->load->view('layout_admin/partial_admin/sidebar');
+    $this->load->view('admin/pengaturan/jenis/index', $data);
+    $this->load->view('layout_admin/partial_admin/footer');
+  }
+
+  public function pengaturan_kerusakan()
+  {
+    $data['kerusakan'] = $this->M_Kerusakan->get_all_kerusakan();
+
+    $this->load->view('layout_admin/partial_admin/header');
+    $this->load->view('layout_admin/partial_admin/sidebar');
+    $this->load->view('admin/pengaturan/kerusakan/index', $data);
+    $this->load->view('layout_admin/partial_admin/footer');
+  }
+
+  public function transaksi_all()
+  {
+    $data['kpm'] = $this->M_Kpm->get_all_kpm();
+
+    $this->load->view('layout_admin/partial_admin/header');
+    $this->load->view('layout_admin/partial_admin/sidebar');
+    $this->load->view('admin/transaksi/index', $data);
+    $this->load->view('layout_admin/partial_admin/footer');
+  }
+
+  public function create_rumah()
+  {
+    $data['kecamatan'] = $this->M_Kec->get_all_kec();
+    $data['desa'] = $this->M_Desa->get_all_desa();
+    $data['jenis'] = $this->M_Jenis->get_all_jenis();
 
     $this->load->view('layout_admin/partial_admin/header');
     $this->load->view('layout_admin/partial_admin/sidebar');
@@ -90,31 +104,48 @@ class Admin extends CI_Controller
     $this->load->view('layout_admin/partial_admin/footer');
   }
 
-  public function store_transaksi()
+  public function store_rutilahu()
   {
     $config['upload_path'] = './public/upload/';
-    $config['allowed_types'] = 'gif|jpg|png|pdf|docx';
+    $config['allowed_types'] = 'gif|jpg|png|pdf';
     $config['max_size'] = 2000;
-    $config['max_width'] = 1500;
-    $config['max_height'] = 1500;
     $config['encrypt_name']			= TRUE;
+    $config['overwrite'] = FALSE;
 
     $this->load->library('upload', $config);
 
-    if (!$this->upload->do_upload('bukti')) {
-      $error = array('error' => $this->upload->display_errors());
-
-      echo "<script>alert('Gagal Membuat Transaksi') ; window.location.href = 'create_transaksi' </script>";
+    if(!$this->upload->do_upload('foto_ktp'))
+    {
+      $data['foto_ktp'] = "";
     } else {
-      $data['id_opd'] = $this->input->post('id_opd');
-      $data['id_jenis_retribusi'] = $this->input->post('id_jenis_retribusi');
-      $data['nominal'] = $this->input->post('nominal');
-      $data['bukti'] = $this->upload->data('file_name');
-      $data['tanggal_upload'] = $this->input->post('tanggal');
-      $this->db->insert('transaksi', $data);
-      
-      echo "<script>alert('Berhasil Membuat Transaksi') ; window.location.href = 'transaksi_all' </script>";
+      $data['foto_ktp'] = $this->upload->data('file_name');
     }
+
+    if(!$this->upload->do_upload('foto_kk'))
+    {
+      $data['foto_kk'] = "";
+    } else {
+      $data['foto_kk'] = $this->upload->data('file_name');
+    }
+
+    if(!$this->upload->do_upload('foto_awal'))
+    {
+      $data['foto_awal'] = "";
+    } else {
+      $data['foto_awal'] = $this->upload->data('file_name');
+    }
+
+    $data['id_kec'] = $this->input->post('kecamatan');
+    $data['id_desa'] = $this->input->post('desa');
+    $data['jenis_penanganan'] = $this->input->post('jenis_penanganan');
+    $data['nama'] = $this->input->post('nama');
+    $data['tahun'] = $this->input->post('tahun');
+    $data['alamat_lengkap'] = $this->input->post('alamat');
+    $data['nik'] = $this->input->post('nik');
+    $data['no_kk'] = $this->input->post('no_kk');
+    
+    $this->db->insert('kpm', $data);
+    redirect(base_url('admin/create_rumah'));  
   }
 
 
@@ -137,6 +168,27 @@ class Admin extends CI_Controller
       echo "<script>alert('Berhasil Menolak Transaksi') ; window.location.href = '../transaksi_all' </script>";
     }
   }
+
+  public function getdatadesa($id)
+  {
+    $searchTerm = $this->input->post('searchTerm');
+    $response   = $this->M_Desa->getdatadesa($id, $searchTerm);
+    echo json_encode($response);
+  }
+
+
+  public function laporan()
+  {
+    $data['kecamatan'] = $this->M_Kec->get_all_kec();
+    $data['desa'] = $this->M_Desa->get_all_desa();
+    $data['jenis'] = $this->M_Jenis->get_all_jenis();
+
+    $this->load->view('layout_admin/partial_admin/header');
+    $this->load->view('layout_admin/partial_admin/sidebar');
+    $this->load->view('admin/laporan/index', $data);
+    $this->load->view('layout_admin/partial_admin/footer');
+  }
+
 }
 
 

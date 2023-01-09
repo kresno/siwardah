@@ -1,9 +1,9 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>Siwardah</b> 1.0.0
+      <b>Rutilahu</b> 1.0.0
     </div>
-    <strong>Copyright &copy; 2022 <a href="https://siwardah.bapenda.garutkab.go.id">Siwardah</a>.</strong>
+    <strong>Copyright &copy; 2023 <a href="https://rutilahu.disperkim.garutkab.go.id">Rutilahu</a>.</strong>
   </footer>
 
   <!-- Control Sidebar -->

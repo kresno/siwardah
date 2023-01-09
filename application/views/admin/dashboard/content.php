@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard Siwardah</h1>
+            <h1 class="m-0 text-dark">Dashboard Sistem Informasi Rutilahu</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -28,7 +28,7 @@
             <div class="small-box bg-info">
               <div class="inner">
                 <h3>150</h3>
-                <p>Transaksi Retribusi Masuk</p>
+                <p>Data Rumah Masuk</p>
               </div>
               <div class="icon">
                 <i class="ion ion-funnel"></i>
@@ -41,7 +41,7 @@
             <div class="small-box bg-success">
               <div class="inner">
                 <h3>53</h3>
-                <p>Transaksi Retribusi Sukses</p>
+                <p>Data Rumah Terverifikasi</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -54,7 +54,7 @@
             <div class="small-box bg-warning">
               <div class="inner">
                 <h3>44</h3>
-                <p>Jumlah Transaksi Pending</p>
+                <p>Data Rumah Pending</p>
               </div>
               <div class="icon">
                 <i class="ion ion-flag"></i>
@@ -67,7 +67,7 @@
             <div class="small-box bg-danger">
               <div class="inner">
                 <h3>1</h3>
-                <p>Transaksi Gagal</p>
+                <p>Data Rumah tidak terverifikasi</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
